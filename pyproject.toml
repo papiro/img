@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "qimg"
+version = "0.1.0"
+description = "Basic image tools"
+authors = ["Papiro <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+pillow = "^10.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+img = "qimg.main:cli"
