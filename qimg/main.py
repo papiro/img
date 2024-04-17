@@ -1,7 +1,7 @@
 import click
 from os import path
 # from argparse import ArgumentParser
-from PIL import Image
+from PIL import Image, ImageOps
 from io import BytesIO
 # import pillow_avif
 
@@ -30,7 +30,16 @@ def to_webp(filename):
 
     img.close()
 
+@click.command()
+@click.argument('filename')
+def invert(filename):
+    img = Image.open(filename)
+    filename, ext = path.splitext(filename)
+    ImageOps.invert(img).save(f'{filename}_inverted.{ext}')
+
+
 cli.add_command(to_webp)
+cli.add_command(invert)
 
 # if __name__ == '__main__':
 #     cli()
